@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <style>
+      .custom-container {
+          max-width: 450px;
+          min-height: 100px;
+          background-color: cornsilk;
+          margin: 12px auto;
+          padding: 24px;
+          border-radius: 12px;
+          border: 1px solid;
+      }
+
+  </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="numberArray = [1, 2, 3, 4, 5, 6 ,7 ,8 ,9]">
+  <div class="custom-container">
+    <h3>Sarcina 1. Afisam Suma, Diferenta, Produsul, Catul lui a si b</h3>
+    <h4>
+      a = <input type="number" ng-model="a">
+    </h4>
+    <h4>
+      b = <input type="number" ng-model="b">
+    </h4>
+    <h3 ng-if="!a || !b">Nu au fost introduse a si b</h3>
+    <div ng-if="a && b">
+      <h4>Suma = {{a + b}}</h4>
+      <h4>Diferenta = {{a - b}}</h4>
+      <h4>Produsul = {{a * b}}</h4>
+      <h4>Catul = {{a / b}}</h4>
+    </div>
+  </div>
+  <div class="custom-container">
+    <h3>Sarcina 2.Afisam produsul c cu 1,2 ... 9</h3>
+    <h4>
+      c = <input type="number" ng-model="c">
+    </h4>
+    <h3 ng-if="!c">Nu a fost introdus "c"</h3>
+    <div ng-if="c">
+      <h4 ng-repeat="(key, i) in numberArray">Produsul c * {{i}} = {{c * i}}</h4>
+    </div>
+  </div>
+  <div class="custom-container">
+    <h3>Sarcina 3. Afisat fara 3</h3>
+    <h3 ng-if="!c">Nu a fost introdus "c"</h3>
+    <div ng-if="c">
+      <h4 ng-repeat="(key, i) in numberArray" ng-if="i !== 3">Produsul c * {{i}} = {{c * i}}</h4>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
